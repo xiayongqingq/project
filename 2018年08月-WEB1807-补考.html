@@ -1,0 +1,451 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0091)http://qsserver.tmooc.cn/qsserver/source/exam_paper/2018/9/1535969937652/1535360502932.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>2018年08月-WEB1807-补考</title>
+<link rel="stylesheet" type="text/css" href="./2018年08月-WEB1807-补考_files/base.css">
+<script type="text/javascript" src="./2018年08月-WEB1807-补考_files/jquery-1.10.2.min.js.下载"></script>
+<script type="text/ecmascript" src="./2018年08月-WEB1807-补考_files/dz.js.下载"></script>
+<script type="text/ecmascript" src="./2018年08月-WEB1807-补考_files/exam.js.下载"></script>
+<script type="text/javascript" src="./2018年08月-WEB1807-补考_files/head.js.下载"></script>
+<script type="text/javascript" src="./2018年08月-WEB1807-补考_files/1535360502932.js.下载"></script>
+<script type="text/javascript" src="./2018年08月-WEB1807-补考_files/shCore.js.下载"></script>
+<script type="text/javascript" src="./2018年08月-WEB1807-补考_files/shBrushBash.js.下载"></script>
+<script type="text/javascript" src="./2018年08月-WEB1807-补考_files/shBrushCpp.js.下载"></script>
+<script type="text/javascript" src="./2018年08月-WEB1807-补考_files/shBrushCSharp.js.下载"></script>
+<script type="text/javascript" src="./2018年08月-WEB1807-补考_files/shBrushCss.js.下载"></script>
+<script type="text/javascript" src="./2018年08月-WEB1807-补考_files/shBrushDelphi.js.下载"></script>
+<script type="text/javascript" src="./2018年08月-WEB1807-补考_files/shBrushDiff.js.下载"></script>
+<script type="text/javascript" src="./2018年08月-WEB1807-补考_files/shBrushGroovy.js.下载"></script>
+<script type="text/javascript" src="./2018年08月-WEB1807-补考_files/shBrushJava.js.下载"></script>
+<script type="text/javascript" src="./2018年08月-WEB1807-补考_files/shBrushJScript.js.下载"></script>
+<script type="text/javascript" src="./2018年08月-WEB1807-补考_files/shBrushPhp.js.下载"></script>
+<script type="text/javascript" src="./2018年08月-WEB1807-补考_files/shBrushPlain.js.下载"></script>
+<script type="text/javascript" src="./2018年08月-WEB1807-补考_files/shBrushPython.js.下载"></script>
+<script type="text/javascript" src="./2018年08月-WEB1807-补考_files/shBrushRuby.js.下载"></script>
+<script type="text/javascript" src="./2018年08月-WEB1807-补考_files/shBrushScala.js.下载"></script>
+<script type="text/javascript" src="./2018年08月-WEB1807-补考_files/shBrushSql.js.下载"></script>
+<script type="text/javascript" src="./2018年08月-WEB1807-补考_files/shBrushVb.js.下载"></script>
+<script type="text/javascript" src="./2018年08月-WEB1807-补考_files/shBrushXml.js.下载"></script>
+<link type="text/css" rel="stylesheet" href="./2018年08月-WEB1807-补考_files/shCore.css">
+<link type="text/css" rel="stylesheet" href="./2018年08月-WEB1807-补考_files/shThemeDefault.css">
+<script type="text/javascript">
+SyntaxHighlighter.all();
+	
+$(document).ready(function(){
+	showQuestions(); //显示题目
+});
+function showQuestions(){
+	data=eval(data);
+	//打乱，注意题型
+	data.sort(function(){ return 0.5 - Math.random();});
+	
+	var content="";
+	var inputType="";
+	var options=["A","B","C","D"];
+	for(var i=0;i<data.length;i++){
+		var nowData=data[i];
+		inputType=(nowData.questionType==1)?"radio":(nowData.questionType==3)?"false":(nowData.questionType==4)?"false":"checkbox";
+		content+=
+		"  <li>"+
+		"    <div class='t_num'>"+(i+1)+".</div>"+
+		"    <div class='question' id='order_"+(i+1)+"' data='"+nowData.order+"'>"+nowData.title+"</div>"+
+		"    <div class='t_select'>"+
+		"      <ul>";
+		
+		if(inputType!="false"){
+		var chars=["A","B","C","D"];
+		chars.sort(function(){ return 0.5 - Math.random();});
+		
+		for(var j=0;j<4;j++){
+			var tempChar=chars[j];
+			if(tempChar=="A" && nowData.a!=""){
+				content+="        <li class=\"clearfloat\"><span><input id='"+nowData.order+"_A' name='name_"+(i+1)+"' type='"+inputType+"' value='A' onclick='addAnswerToCookie2();'/> "+options[j]+".</span><span class=\"ans\">"+nowData.a+"</span></li>";
+			}
+			if(tempChar=="B" && nowData.b!=""){
+				content+="        <li class=\"clearfloat\"><span><input id='"+nowData.order+"_B' name='name_"+(i+1)+"' type='"+inputType+"' value='B' onclick='addAnswerToCookie2();'/> "+options[j]+".</span><span class=\"ans\">"+nowData.b+"</span></li>";
+			}
+			if(tempChar=="C" && nowData.c!=""){
+				content+="        <li class=\"clearfloat\"><span><input id='"+nowData.order+"_C' name='name_"+(i+1)+"' type='"+inputType+"' value='C' onclick='addAnswerToCookie2();'/> "+options[j]+".</span><span class=\"ans\">"+nowData.c+"</span></li>";
+			}
+			if(tempChar=="D" && nowData.d!=""){
+				content+="        <li class=\"clearfloat\"><span><input id='"+nowData.order+"_D' name='name_"+(i+1)+"' type='"+inputType+"' value='D' onclick='addAnswerToCookie2();'/> "+options[j]+".</span><span class=\"ans\">"+nowData.d+"</span></li>";
+			}
+		}
+		
+
+		if(nowData.e!=null && nowData.e!=""){
+			content+="        <li class=\"clearfloat\"><span><input id='"+nowData.order+"_E' name='name_"+(i+1)+"' type='"+inputType+"' value='E' onclick='addAnswerToCookie2();'/> E.</span><span class=\"ans\">"+nowData.e+"</span></li>";
+		}
+		if(nowData.f!=null && nowData.f!=""){
+			content+="        <li class=\"clearfloat\"><span><input id='"+nowData.order+"_F' name='name_"+(i+1)+"' type='"+inputType+"' value='F' onclick='addAnswerToCookie2();'/> F.</span><span class=\"ans\">"+nowData.f+"</span></li>";
+		}
+		if(nowData.g!=null && nowData.g!=""){
+			content+="        <li class=\"clearfloat\"><span><input id='"+nowData.order+"_G' name='name_"+(i+1)+"' type='"+inputType+"' value='G' onclick='addAnswerToCookie2();'/> G.</span><span class=\"ans\">"+nowData.g+"</span></li>";
+		}
+		if(nowData.h!=null && nowData.h!=""){
+			content+="        <li class=\"clearfloat\"><span><input id='"+nowData.order+"_H' name='name_"+(i+1)+"' type='"+inputType+"' value='H' onclick='addAnswerToCookie2();'/> H.</span><span class=\"ans\">"+nowData.h+"</span></li>";
+		}
+		
+		}
+		
+			//填空题
+	  if(nowData.questionType==3){
+
+           if(nowData.questionPicture!=null &&nowData.questionPicture != ''){
+			  
+                        
+                       
+                        var ary= nowData.questionPicture.split('\\|');
+									if(ary!=null&&ary.length>0){
+										content+="<div class='exam_img'>";
+                                         for(var k=0;k<ary.length;k++){
+											content+="<img src='"+"/data/questionpicture"+"/"+ary[k]+"'/>";
+										 }
+										 content+="</div>"+"\n";
+									}
+									
+                                                                               
+		   }
+		  content+= "    <div class='t_input'>填写答案：";
+			  for(var g=0;g<nowData.blanksCom;g++){
+					   content+= g+"、<input id='"+(i+1)+"_"+g+"' name='' type='text' />"
+					  }
+      				content+="  </li>"+"\n";
+
+}
+//简答题
+	   if(nowData.questionType==4){
+		       content+="<li>" +"\n";
+						 if(nowData.questionPicture != null && nowData.questionPicture != ''){
+                                  var aryTwo  =nowData.questionPicture.split("\\|");
+                                   if(aryTwo != null && aryTwo.length>0){
+								          content+= "    <div class='exam_img'>";
+											for(var t=0;t<aryTwo.length;t++){
+											   content+=  "<img src='"+"/data/questionpicture"+"/"+aryTwo[t]+"'/>";
+											}
+											content+="</div>"+"\n";
+								   }
+
+						 }
+                  content+="    <div class='t_textarea'><textarea id='"+(i+1)+"_1' name='name_"+(i+1)+"' cols='' rows=''></textarea></div>" +"\n";
+				  content+="    <div id='"+(i+1)+"_1_score'></div>"
+                content+= "  </li>"+"\n";
+		   }
+	
+		
+		
+
+		content+=
+		"      </ul>"+
+		"    </div>"+
+		"    <div id='"+(i+1)+"_answer' class='exam_result' style='display:none'>"+
+		"    </div>"+
+		"  </li>";
+	}
+	$(".exam_test>ul").html(content);
+}
+</script>
+<script type="text/javascript"> 
+$(document).ready(function(){
+	checkDate(1535976440000);
+	recoverAnswer2();
+});
+</script>
+</head>
+<body style="">
+  <div id="header">
+    <div id="head">
+      <div id="logo"></div>
+      <div id="exam_title">在线考试</div>
+      <div class="exam_btn fl_right"><input name="" type="button" class="btn" value="交卷" style="background: rgb(153, 153, 153); cursor: auto;"></div>
+      <div class="exam_time" id="time-task">答题剩余时间0小时00分00秒</div>
+    </div>
+  </div>
+<div id="exam_wrap">
+<div class="exam_content">
+<div class="exam_test">
+<ul>  <li>    <div class="t_num">1.</div>    <div class="question" id="order_1" data="40"><xmp>(单选题)查看如下代码：
+     var index = 0;
+     var arr = [97, 85, 97, 90, 85];
+     for (var i = 0; i < arr.length; i++) {
+         if (arr[i] == 85) {
+             index = i;
+         }
+     }
+     console.log(index);
+上述代码执行后，输出结果为（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="40_B" name="name_1" type="radio" value="B" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>4</xmp></span></li>        <li class="clearfloat"><span><input id="40_A" name="name_1" type="radio" value="A" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>1</xmp></span></li>        <li class="clearfloat"><span><input id="40_C" name="name_1" type="radio" value="C" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>0</xmp></span></li>        <li class="clearfloat"><span><input id="40_D" name="name_1" type="radio" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>以上都不对</xmp></span></li>      </ul>    </div>    <div id="1_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">2.</div>    <div class="question" id="order_2" data="6"><xmp>(单选题)有下述JS代码：
+var i = 0;
+var sum = 0;
+do{
+	i++;
+	if( i%2 === 0){
+	continue;
+}
+if( i%5 === 0){
+	break;
+}
+sum += i;
+}while( i<10 );
+console.log( 'sum=' + sum );
+其运行结果应该是下列哪项（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="6_A" name="name_2" type="radio" value="A" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>sum=0</xmp></span></li>        <li class="clearfloat"><span><input id="6_C" name="name_2" type="radio" value="C" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>sum=Infinity</xmp></span></li>        <li class="clearfloat"><span><input id="6_D" name="name_2" type="radio" value="D" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>死循环</xmp></span></li>        <li class="clearfloat"><span><input id="6_B" name="name_2" type="radio" value="B" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>sum=4</xmp></span></li>      </ul>    </div>    <div id="2_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">3.</div>    <div class="question" id="order_3" data="19"><xmp>(单选题)有下述JS代码：
+var x = 10;
+function add( num ){
+	num++;
+	console.log( 'num='+num );
+}
+add(x);
+console.log( 'x='+x );
+此段代码执行后的结果是（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="19_D" name="name_3" type="radio" value="D" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>num=11
+x=11</xmp></span></li>        <li class="clearfloat"><span><input id="19_A" name="name_3" type="radio" value="A" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>num=10
+x=10</xmp></span></li>        <li class="clearfloat"><span><input id="19_C" name="name_3" type="radio" value="C" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>num=10
+x=11</xmp></span></li>        <li class="clearfloat"><span><input id="19_B" name="name_3" type="radio" value="B" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>num=11
+x=10</xmp></span></li>      </ul>    </div>    <div id="3_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">4.</div>    <div class="question" id="order_4" data="4"><xmp>(单选题)从0、1、2、7、9 五个数字中任选四个不重复的数字，组成的最大四位数和最小四位数的差是多少？</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="4_B" name="name_4" type="radio" value="B" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>8442</xmp></span></li>        <li class="clearfloat"><span><input id="4_A" name="name_4" type="radio" value="A" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>8694</xmp></span></li>        <li class="clearfloat"><span><input id="4_C" name="name_4" type="radio" value="C" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>9694</xmp></span></li>        <li class="clearfloat"><span><input id="4_D" name="name_4" type="radio" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>8740</xmp></span></li>      </ul>    </div>    <div id="4_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">5.</div>    <div class="question" id="order_5" data="47"><xmp>(单选题)下列语句哪句不属于DML语句（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="47_A" name="name_5" type="radio" value="A" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>INSERT</xmp></span></li>        <li class="clearfloat"><span><input id="47_B" name="name_5" type="radio" value="B" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>DELETE</xmp></span></li>        <li class="clearfloat"><span><input id="47_D" name="name_5" type="radio" value="D" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>SELECT</xmp></span></li>        <li class="clearfloat"><span><input id="47_C" name="name_5" type="radio" value="C" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>UPDATE</xmp></span></li>      </ul>    </div>    <div id="5_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">6.</div>    <div class="question" id="order_6" data="29"><xmp>(单选题)下列表达式的值哪个为true（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="29_B" name="name_6" type="radio" value="B" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>null === undefined</xmp></span></li>        <li class="clearfloat"><span><input id="29_A" name="name_6" type="radio" value="A" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>null instanceof Object</xmp></span></li>        <li class="clearfloat"><span><input id="29_C" name="name_6" type="radio" value="C" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>null == undefined</xmp></span></li>        <li class="clearfloat"><span><input id="29_D" name="name_6" type="radio" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>NaN == NaN</xmp></span></li>      </ul>    </div>    <div id="6_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">7.</div>    <div class="question" id="order_7" data="37"><xmp>(单选题)查看如下代码：
+     var x = true;
+     var y = false;
+     var z = "true";
+     var a = x + y + z;
+     console.log(a);
+上述代码执行后，变量 a 的值是（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="37_B" name="name_7" type="radio" value="B" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>truefalsetrue</xmp></span></li>        <li class="clearfloat"><span><input id="37_A" name="name_7" type="radio" value="A" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>1true</xmp></span></li>        <li class="clearfloat"><span><input id="37_D" name="name_7" type="radio" value="D" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>2</xmp></span></li>        <li class="clearfloat"><span><input id="37_C" name="name_7" type="radio" value="C" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>truetrue</xmp></span></li>      </ul>    </div>    <div id="7_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">8.</div>    <div class="question" id="order_8" data="24"><xmp>(多选题)编写一个名为judgeScore的函数，用于判断分数。如果分数为100，则输出“满分“；如果分数小于60，则输出”不及格“；如果分数大于等于60且小于80，则输出”良好“；否则输出”优秀“。此时，假定输入参数一定为0到100之间的数值类型。为实现上述要求，下列选项中，正确的是（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="24_A" name="name_8" type="checkbox" value="A" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>function judgeScore(num) {
+    if (num < 60) console.log("不及格");
+else if (num < 80 )   console.log("良好");
+else if (num < 100)   console.log("优秀");
+else    console.log("满分");
+}</xmp></span></li>        <li class="clearfloat"><span><input id="24_B" name="name_8" type="checkbox" value="B" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>function judgeScore(num) {
+     if (num == 100) console.log("满分");
+     else if (num >= 80 ) console.log("优秀");
+     else if (num >= 60) console.log("良好");
+     else   console.log("不及格");
+}</xmp></span></li>        <li class="clearfloat"><span><input id="24_D" name="name_8" type="checkbox" value="D" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>function judgeScore(num) {
+if(num == 100) console.log("满分");
+else
+{
+    if(num > 60) console.log("良好");
+    else if(num >= 80) console.log("优秀");
+    else console.log("不及格");
+ }
+}</xmp></span></li>        <li class="clearfloat"><span><input id="24_C" name="name_8" type="checkbox" value="C" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>function judgeScore(num) {
+if(num < 60) console.log("不及格");
+else
+{
+    if(num > 60) console.log("良好");
+    else if(num >= 80) console.log("优秀");
+    else console.log("满分");
+ }
+}</xmp></span></li>      </ul>    </div>    <div id="8_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">9.</div>    <div class="question" id="order_9" data="8"><xmp>(多选题)下列描述中，正确的是（）</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="8_A" name="name_9" type="checkbox" value="A" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp> 全局变量直接定义在全局中，不属于任何函数的变量；</xmp></span></li>        <li class="clearfloat"><span><input id="8_B" name="name_9" type="checkbox" value="B" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp> 全局变量可反复使用，随处可用； </xmp></span></li>        <li class="clearfloat"><span><input id="8_C" name="name_9" type="checkbox" value="C" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>局部变量仅在函数内可用，出了函数不能使用；</xmp></span></li>        <li class="clearfloat"><span><input id="8_D" name="name_9" type="checkbox" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>局部变量可反复使用，随处可用；</xmp></span></li>      </ul>    </div>    <div id="9_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">10.</div>    <div class="question" id="order_10" data="3"><xmp>(单选题)一袋白、蓝、红球共 157 个，其中蓝球比红球的2倍多3个，白球比蓝球和红球的总和还多37个。问蓝球有多少个？</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="3_B" name="name_10" type="radio" value="B" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>41</xmp></span></li>        <li class="clearfloat"><span><input id="3_A" name="name_10" type="radio" value="A" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>40</xmp></span></li>        <li class="clearfloat"><span><input id="3_D" name="name_10" type="radio" value="D" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>97</xmp></span></li>        <li class="clearfloat"><span><input id="3_C" name="name_10" type="radio" value="C" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>19</xmp></span></li>      </ul>    </div>    <div id="10_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">11.</div>    <div class="question" id="order_11" data="33"><xmp>(单选题)查看如下代码：
+var a = 2;
+var b = 2<<4;
+console.log(b);
+上述代码的输出结果是（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="33_C" name="name_11" type="radio" value="C" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>16</xmp></span></li>        <li class="clearfloat"><span><input id="33_D" name="name_11" type="radio" value="D" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>32</xmp></span></li>        <li class="clearfloat"><span><input id="33_B" name="name_11" type="radio" value="B" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>8</xmp></span></li>        <li class="clearfloat"><span><input id="33_A" name="name_11" type="radio" value="A" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>0</xmp></span></li>      </ul>    </div>    <div id="11_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">12.</div>    <div class="question" id="order_12" data="5"><xmp>(单选题)有下述JS代码：
+var status = '党员';
+switch( status ) {
+    case '党员':
+		console.log('您好！党员！');
+    case '团员':
+		console.log('您好！团员！');
+    default:
+		console.log('您好！群众！');
+}
+其运行结果是下列的哪一项（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="5_A" name="name_12" type="radio" value="A" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>您好！党员！</xmp></span></li>        <li class="clearfloat"><span><input id="5_D" name="name_12" type="radio" value="D" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>执行错误</xmp></span></li>        <li class="clearfloat"><span><input id="5_B" name="name_12" type="radio" value="B" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>您好！党员！
+您好！团员！</xmp></span></li>        <li class="clearfloat"><span><input id="5_C" name="name_12" type="radio" value="C" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>您好！党员！
+您好！团员！
+您好！群众！</xmp></span></li>      </ul>    </div>    <div id="12_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">13.</div>    <div class="question" id="order_13" data="30"><xmp>(单选题)查看如下代码：
+var a = 20;
+var b = "2";
+var c = (a+1)/b;
+document.write (c);
+上述代码的输出结果是（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="30_B" name="name_13" type="radio" value="B" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>10</xmp></span></li>        <li class="clearfloat"><span><input id="30_A" name="name_13" type="radio" value="A" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>10.5</xmp></span></li>        <li class="clearfloat"><span><input id="30_C" name="name_13" type="radio" value="C" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>11</xmp></span></li>        <li class="clearfloat"><span><input id="30_D" name="name_13" type="radio" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>(20+1)/2</xmp></span></li>      </ul>    </div>    <div id="13_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">14.</div>    <div class="question" id="order_14" data="36"><xmp>(多选题)下列变量名中，哪些是非法的（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="36_D" name="name_14" type="checkbox" value="D" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>class</xmp></span></li>        <li class="clearfloat"><span><input id="36_B" name="name_14" type="checkbox" value="B" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>2myVar</xmp></span></li>        <li class="clearfloat"><span><input id="36_A" name="name_14" type="checkbox" value="A" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>myVar2_</xmp></span></li>        <li class="clearfloat"><span><input id="36_C" name="name_14" type="checkbox" value="C" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>$_myVar</xmp></span></li>      </ul>    </div>    <div id="14_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">15.</div>    <div class="question" id="order_15" data="23"><xmp>(单选题)查看如下代码：
+     var num = 10;
+     if (num > 20)
+         console.log(num);
+         console.log("num的值小于20");
+上述代码执行后，输出结果为（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="23_C" name="name_15" type="radio" value="C" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>输出“num的值小于20”</xmp></span></li>        <li class="clearfloat"><span><input id="23_B" name="name_15" type="radio" value="B" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>没有输出</xmp></span></li>        <li class="clearfloat"><span><input id="23_A" name="name_15" type="radio" value="A" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>先输出10，再输出“num的值小于20”</xmp></span></li>        <li class="clearfloat"><span><input id="23_D" name="name_15" type="radio" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>程序错误</xmp></span></li>      </ul>    </div>    <div id="15_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">16.</div>    <div class="question" id="order_16" data="25"><xmp>(单选题)查看如下代码：
+     function testFunc(num) {
+         if (num < 10)
+             console.log("小于10");
+         else if (num > 10)
+             console.log("大于10");
+         else
+             console.log("等于10");
+     }
+     testFunc("a");
+上述代码执行后，输出结果为（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="25_A" name="name_16" type="radio" value="A" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>输出“大于10”</xmp></span></li>        <li class="clearfloat"><span><input id="25_B" name="name_16" type="radio" value="B" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>输出“小于10”</xmp></span></li>        <li class="clearfloat"><span><input id="25_C" name="name_16" type="radio" value="C" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>输出“等于10”</xmp></span></li>        <li class="clearfloat"><span><input id="25_D" name="name_16" type="radio" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>程序错误</xmp></span></li>      </ul>    </div>    <div id="16_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">17.</div>    <div class="question" id="order_17" data="18"><xmp>(单选题)有下列代码：
+var x = 10;
+function f1( num ){
+	++ num;
+}
+var y = f1( x );
+console.log( 'x=' + x + '; y=' + y );
+执行后的结果是（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="18_B" name="name_17" type="radio" value="B" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>x=10; y=11</xmp></span></li>        <li class="clearfloat"><span><input id="18_A" name="name_17" type="radio" value="A" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>x=10; y=undefined</xmp></span></li>        <li class="clearfloat"><span><input id="18_D" name="name_17" type="radio" value="D" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>x=11; y=undefined</xmp></span></li>        <li class="clearfloat"><span><input id="18_C" name="name_17" type="radio" value="C" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>x=11; y=11</xmp></span></li>      </ul>    </div>    <div id="17_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">18.</div>    <div class="question" id="order_18" data="17"><xmp>(单选题)查看如下代码：
+function f1( ){
+	x = 10;
+	++x;
+}
+f1();
+console.log(x);
+执行后的结果是（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="17_C" name="name_18" type="radio" value="C" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>Undefined</xmp></span></li>        <li class="clearfloat"><span><input id="17_A" name="name_18" type="radio" value="A" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>10</xmp></span></li>        <li class="clearfloat"><span><input id="17_B" name="name_18" type="radio" value="B" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>11</xmp></span></li>        <li class="clearfloat"><span><input id="17_D" name="name_18" type="radio" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>程序错误</xmp></span></li>      </ul>    </div>    <div id="18_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">19.</div>    <div class="question" id="order_19" data="49"><xmp>(多选题)假设员工表emp有eid/ename/salary三列，没有特别的约束，则下列INSERT语句语法正确的有：（）</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="49_B" name="name_19" type="checkbox" value="B" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>INSERT INTO emp(eid,ename) VALUES(20, 'MARY');</xmp></span></li>        <li class="clearfloat"><span><input id="49_C" name="name_19" type="checkbox" value="C" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>INSERT INTO emp VALUES(30, 40, 50),('JIM','JERRY','JANE'),(7000,8000,9000);</xmp></span></li>        <li class="clearfloat"><span><input id="49_D" name="name_19" type="checkbox" value="D" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>INSERT INTO emp VALUES(60, 'TOM', 6000), (70, 'TOM', 7000), (80, 'TOM', 8000);</xmp></span></li>        <li class="clearfloat"><span><input id="49_A" name="name_19" type="checkbox" value="A" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>INSERT INTO emp VALUES(10, 'TOM');</xmp></span></li>      </ul>    </div>    <div id="19_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">20.</div>    <div class="question" id="order_20" data="32"><xmp>(单选题)查看如下代码：
+var a = "10";
+var b = 10;
+console.log (a+1 == b + 1);
+上述代码的输出结果是（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="32_B" name="name_20" type="radio" value="B" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>false</xmp></span></li>        <li class="clearfloat"><span><input id="32_D" name="name_20" type="radio" value="D" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>undefined</xmp></span></li>        <li class="clearfloat"><span><input id="32_A" name="name_20" type="radio" value="A" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>true</xmp></span></li>        <li class="clearfloat"><span><input id="32_C" name="name_20" type="radio" value="C" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>程序错误</xmp></span></li>      </ul>    </div>    <div id="20_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">21.</div>    <div class="question" id="order_21" data="26"><xmp>(多选题)查看如下代码：
+var n = 5;
+var result =                         ;
+console.log(result);
+现需要判断变量 n 的值是否为10：如果为 10 ，则输出“对了”；如果比10小，则输出“小了”；否则输出“大了”。为实现此功能，横线处的代码为（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="26_D" name="name_21" type="checkbox" value="D" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>n == 10 ?  "对了"  : n > 10 ? "大了" :  "小了"</xmp></span></li>        <li class="clearfloat"><span><input id="26_B" name="name_21" type="checkbox" value="B" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>n == 10 ?  ("对了"  :  n > 10) ? ("大了" :  "小了")</xmp></span></li>        <li class="clearfloat"><span><input id="26_C" name="name_21" type="checkbox" value="C" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>n == 10 ?  "对了"  : ( n > 10 ? "大了" :  "小了")</xmp></span></li>        <li class="clearfloat"><span><input id="26_A" name="name_21" type="checkbox" value="A" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>n == 10 ?  ("对了"  :  n > 10 ? "大了" :  "小了")</xmp></span></li>      </ul>    </div>    <div id="21_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">22.</div>    <div class="question" id="order_22" data="50"><xmp>(单选题)下述SELECT语句中各不同子句出现顺序中语法正确的有：（） </xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="50_C" name="name_22" type="radio" value="C" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>SELECT ... FROM ... LIMIT ... WHERE ... GROUP BY ... ORDER BY ...;</xmp></span></li>        <li class="clearfloat"><span><input id="50_A" name="name_22" type="radio" value="A" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>SELECT ... FROM ... LIMIT ...WHERE ... ORDER BY ...;</xmp></span></li>        <li class="clearfloat"><span><input id="50_D" name="name_22" type="radio" value="D" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>SELECT ... FROM ... WHERE ... ORDER BY ... GROUP BY ... LIMIT ...;</xmp></span></li>        <li class="clearfloat"><span><input id="50_B" name="name_22" type="radio" value="B" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>SELECT ... FROM ... WHERE ... GROUP BY ... ORDER BY ... LIMIT ...;</xmp></span></li>      </ul>    </div>    <div id="22_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">23.</div>    <div class="question" id="order_23" data="38"><xmp>(单选题)现需要创建数组，下列选项中，错误的是（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="38_C" name="name_23" type="radio" value="C" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>var arr3 = new Array("Tom","Mary","John");</xmp></span></li>        <li class="clearfloat"><span><input id="38_D" name="name_23" type="radio" value="D" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>var arr4 = new Array()[true,123];</xmp></span></li>        <li class="clearfloat"><span><input id="38_A" name="name_23" type="radio" value="A" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>var arr1 = [ ];</xmp></span></li>        <li class="clearfloat"><span><input id="38_B" name="name_23" type="radio" value="B" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>var arr2 = [97, 85, 79];</xmp></span></li>      </ul>    </div>    <div id="23_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">24.</div>    <div class="question" id="order_24" data="12"><xmp>(单选题)在Javascript中，运行下面代码的结果是(   )
+   Math.ceil(25.5);</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="12_D" name="name_24" type="radio" value="D" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>26</xmp></span></li>        <li class="clearfloat"><span><input id="12_C" name="name_24" type="radio" value="C" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>25.5</xmp></span></li>        <li class="clearfloat"><span><input id="12_A" name="name_24" type="radio" value="A" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>24</xmp></span></li>        <li class="clearfloat"><span><input id="12_B" name="name_24" type="radio" value="B" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>25</xmp></span></li>      </ul>    </div>    <div id="24_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">25.</div>    <div class="question" id="order_25" data="28"><xmp>(单选题)查看如下代码：
+function f1( ){
+	console.log(x);
+	x=x+1;
+	var x = 10;
+	console.log(x);
+}
+f1();
+上述代码执行后，输出结果为（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="28_A" name="name_25" type="radio" value="A" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>程序错误</xmp></span></li>        <li class="clearfloat"><span><input id="28_C" name="name_25" type="radio" value="C" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>undefined 和 10</xmp></span></li>        <li class="clearfloat"><span><input id="28_B" name="name_25" type="radio" value="B" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>10和11</xmp></span></li>        <li class="clearfloat"><span><input id="28_D" name="name_25" type="radio" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>null 和 10</xmp></span></li>      </ul>    </div>    <div id="25_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">26.</div>    <div class="question" id="order_26" data="48"><xmp>(单选题)有SQL语句：
+SELECT  *  FROM  user  WHERE uname='%e%';
+关于此语句的下列描述正确的是：（）</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="48_B" name="name_26" type="radio" value="B" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>查询用户名中仅包含3个字符且第二个字符为e的用户的所有信息</xmp></span></li>        <li class="clearfloat"><span><input id="48_C" name="name_26" type="radio" value="C" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>查询用户名为 '%e%' 的用户的所有信息</xmp></span></li>        <li class="clearfloat"><span><input id="48_A" name="name_26" type="radio" value="A" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>查询用户名中包含字符e的用户的所有信息</xmp></span></li>        <li class="clearfloat"><span><input id="48_D" name="name_26" type="radio" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>SQL语法错误</xmp></span></li>      </ul>    </div>    <div id="26_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">27.</div>    <div class="question" id="order_27" data="35"><xmp>(单选题)查看如下代码：
+var a = "20";
+var b = true;
+var c = 5;
+console.log (a+b/c);
+上述代码执行后，输出结果为（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="35_B" name="name_27" type="radio" value="B" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>20.2</xmp></span></li>        <li class="clearfloat"><span><input id="35_A" name="name_27" type="radio" value="A" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>4.02</xmp></span></li>        <li class="clearfloat"><span><input id="35_D" name="name_27" type="radio" value="D" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>NaN</xmp></span></li>        <li class="clearfloat"><span><input id="35_C" name="name_27" type="radio" value="C" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>200.2</xmp></span></li>      </ul>    </div>    <div id="27_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">28.</div>    <div class="question" id="order_28" data="44"><xmp>(单选题)查看如下代码：
+   var arr = [ [ 11, 12, 13 ], [ 21 ], [ 31, 32] ];
+   console.log( arr[1][1] );
+   console.log( arr[2][1] );
+执行后的结果是（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="44_C" name="name_28" type="radio" value="C" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>11 和 21</xmp></span></li>        <li class="clearfloat"><span><input id="44_A" name="name_28" type="radio" value="A" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>undefined 和 32</xmp></span></li>        <li class="clearfloat"><span><input id="44_B" name="name_28" type="radio" value="B" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>21 和 31</xmp></span></li>        <li class="clearfloat"><span><input id="44_D" name="name_28" type="radio" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>程序错误</xmp></span></li>      </ul>    </div>    <div id="28_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">29.</div>    <div class="question" id="order_29" data="41"><xmp>(单选题)有下述JS代码：
+function printArray( arr ){
+	    for(var i in arr){
+    if( arr[i] instanceof Array ){
+    printArray( arr[i] );
+}else{
+    document.write( arr[i] + ' ' );
+}
+}
+}
+var data = [ 1, [20,21], [[301,302],[310,311]]];
+printArray( data );
+上述代码的输出结果是（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="41_B" name="name_29" type="radio" value="B" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>1 20 301</xmp></span></li>        <li class="clearfloat"><span><input id="41_A" name="name_29" type="radio" value="A" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>1 20 21 301 302 310 311</xmp></span></li>        <li class="clearfloat"><span><input id="41_C" name="name_29" type="radio" value="C" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>无限递归</xmp></span></li>        <li class="clearfloat"><span><input id="41_D" name="name_29" type="radio" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>代码错误</xmp></span></li>      </ul>    </div>    <div id="29_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">30.</div>    <div class="question" id="order_30" data="42"><xmp>(多选题)下列哪些方法可以在数组尾部添加一个新元素（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="42_A" name="name_30" type="checkbox" value="A" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>arr[ ] = 10;</xmp></span></li>        <li class="clearfloat"><span><input id="42_C" name="name_30" type="checkbox" value="C" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>arr[ arr.length+1 ] = 10;</xmp></span></li>        <li class="clearfloat"><span><input id="42_B" name="name_30" type="checkbox" value="B" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>arr[ arr.length ] = 10;</xmp></span></li>        <li class="clearfloat"><span><input id="42_D" name="name_30" type="checkbox" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>arr.push( 10 );</xmp></span></li>      </ul>    </div>    <div id="30_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">31.</div>    <div class="question" id="order_31" data="46"><xmp>(单选题)查看如下代码：
+var datas = [10,20,30,40,50];
+var arr1 = datas.splice(3,2,60,70);
+arr1.concat(80);
+console.log(arr1.toString());
+执行后的结果是（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="46_A" name="name_31" type="radio" value="A" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>10,20,30,60,70,80</xmp></span></li>        <li class="clearfloat"><span><input id="46_C" name="name_31" type="radio" value="C" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>40,50,80</xmp></span></li>        <li class="clearfloat"><span><input id="46_B" name="name_31" type="radio" value="B" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>10,20,30,40,60,70,80</xmp></span></li>        <li class="clearfloat"><span><input id="46_D" name="name_31" type="radio" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>40,50</xmp></span></li>      </ul>    </div>    <div id="31_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">32.</div>    <div class="question" id="order_32" data="31"><xmp>(单选题)查看如下代码：
+var a = "205.1";
+var b = 2;
+console.log(b + a);
+console.log(isNaN(b + a));
+上述代码的输出结果是（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="31_B" name="name_32" type="radio" value="B" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>207.1   和 false</xmp></span></li>        <li class="clearfloat"><span><input id="31_A" name="name_32" type="radio" value="A" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>2205.1  和 false</xmp></span></li>        <li class="clearfloat"><span><input id="31_C" name="name_32" type="radio" value="C" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>2205.1  和 true</xmp></span></li>        <li class="clearfloat"><span><input id="31_D" name="name_32" type="radio" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>207.1   和 true</xmp></span></li>      </ul>    </div>    <div id="32_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">33.</div>    <div class="question" id="order_33" data="22"><xmp>(单选题)查看如下代码：
+    function test(a) {
+        a = a + 10;
+    }
+    var a = 10;
+    test(a);
+    console.log(a);
+上述代码执行后，输出变量a的值为（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="22_B" name="name_33" type="radio" value="B" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>20</xmp></span></li>        <li class="clearfloat"><span><input id="22_A" name="name_33" type="radio" value="A" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>10</xmp></span></li>        <li class="clearfloat"><span><input id="22_C" name="name_33" type="radio" value="C" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>错误</xmp></span></li>        <li class="clearfloat"><span><input id="22_D" name="name_33" type="radio" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>undefined</xmp></span></li>      </ul>    </div>    <div id="33_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">34.</div>    <div class="question" id="order_34" data="1"><xmp>(单选题)甲、乙、丙三人各有一些糖果，甲、乙共有 81 颗，乙、丙共有 99 颗。已知三人中糖果最多的人的糖果数是最少人的2倍，那么丙有（）颗糖果。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="1_B" name="name_34" type="radio" value="B" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>44</xmp></span></li>        <li class="clearfloat"><span><input id="1_A" name="name_34" type="radio" value="A" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>42</xmp></span></li>        <li class="clearfloat"><span><input id="1_D" name="name_34" type="radio" value="D" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>48</xmp></span></li>        <li class="clearfloat"><span><input id="1_C" name="name_34" type="radio" value="C" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>45</xmp></span></li>      </ul>    </div>    <div id="34_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">35.</div>    <div class="question" id="order_35" data="11"><xmp>(单选题)对字符串str="welcome to china"进行下列操作处理,描述结果正确的是(   )</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="11_A" name="name_35" type="radio" value="A" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>str.substring(1,5)的返回值是"elcom"</xmp></span></li>        <li class="clearfloat"><span><input id="11_C" name="name_35" type="radio" value="C" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>str.indexOf("come",4)的返回值为4</xmp></span></li>        <li class="clearfloat"><span><input id="11_B" name="name_35" type="radio" value="B" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>str.length的返回值16</xmp></span></li>        <li class="clearfloat"><span><input id="11_D" name="name_35" type="radio" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>str.toUpperCase( )的返回值是"Welcome To China"</xmp></span></li>      </ul>    </div>    <div id="35_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">36.</div>    <div class="question" id="order_36" data="14"><xmp>(单选题)查看如下代码：
+var x = 10;
+function f1( num ){
+	return num++;
+}
+var y = f1( x );
+console.log(x);
+console.log(y);
+执行后的结果是（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="14_C" name="name_36" type="radio" value="C" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>11 和 10</xmp></span></li>        <li class="clearfloat"><span><input id="14_A" name="name_36" type="radio" value="A" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>10 和 11</xmp></span></li>        <li class="clearfloat"><span><input id="14_B" name="name_36" type="radio" value="B" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>10 和 10</xmp></span></li>        <li class="clearfloat"><span><input id="14_D" name="name_36" type="radio" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>11 和 11</xmp></span></li>      </ul>    </div>    <div id="36_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">37.</div>    <div class="question" id="order_37" data="21"><xmp>(单选题)查看如下代码：
+function func1(num){
+	if(num < 0)
+		console.log("负数");
+	else if(num === 0)
+		console.log("零");
+	else if(num > 0)
+		console.log("正数");
+	else
+		console.log("非数字");
+}
+func1("-1");
+func1("0");
+执行后的结果是（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="21_C" name="name_37" type="radio" value="C" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>“非数字”和“零”</xmp></span></li>        <li class="clearfloat"><span><input id="21_A" name="name_37" type="radio" value="A" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>“非数字”和“非数字”</xmp></span></li>        <li class="clearfloat"><span><input id="21_D" name="name_37" type="radio" value="D" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>“负数”和“非数字”</xmp></span></li>        <li class="clearfloat"><span><input id="21_B" name="name_37" type="radio" value="B" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>“负数”和“零”</xmp></span></li>      </ul>    </div>    <div id="37_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">38.</div>    <div class="question" id="order_38" data="39"><xmp>(单选题)查看如下代码：
+     var arr = [97, 85, 79, 90];
+     for (var i = 0; i < arr.length-1; i++) {
+         if (arr[i] > arr[i+1]) {
+             var temp = arr[i];
+             arr[i] = arr[i+1];
+             arr[i+1] = temp;
+         }
+     }
+     console.log(arr);
+上述代码执行后，输出结果为（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="39_A" name="name_38" type="radio" value="A" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>[97, 85, 79, 90]</xmp></span></li>        <li class="clearfloat"><span><input id="39_C" name="name_38" type="radio" value="C" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>[85, 79, 90, 97]</xmp></span></li>        <li class="clearfloat"><span><input id="39_B" name="name_38" type="radio" value="B" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>[79, 85, 90, 97]</xmp></span></li>        <li class="clearfloat"><span><input id="39_D" name="name_38" type="radio" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>以上都不对</xmp></span></li>      </ul>    </div>    <div id="38_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">39.</div>    <div class="question" id="order_39" data="20"><xmp>(单选题)查看如下代码：
+var str = "1 < 2";
+console.log(str);
+console.log(eval(str));
+执行后的结果是（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="20_A" name="name_39" type="radio" value="A" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>1 < 2 和 true</xmp></span></li>        <li class="clearfloat"><span><input id="20_B" name="name_39" type="radio" value="B" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>true 和 true</xmp></span></li>        <li class="clearfloat"><span><input id="20_C" name="name_39" type="radio" value="C" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>先输出1 < 2，然后程序错误</xmp></span></li>        <li class="clearfloat"><span><input id="20_D" name="name_39" type="radio" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>以上均不对</xmp></span></li>      </ul>    </div>    <div id="39_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">40.</div>    <div class="question" id="order_40" data="10"><xmp>(单选题)假设今天是2006年4月1日星期六,请问以下javascript代码输出结果是(   )
+var time = new Date( );
+document.write(time.getDate( ));</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="10_A" name="name_40" type="radio" value="A" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>2006</xmp></span></li>        <li class="clearfloat"><span><input id="10_C" name="name_40" type="radio" value="C" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>1</xmp></span></li>        <li class="clearfloat"><span><input id="10_D" name="name_40" type="radio" value="D" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>6</xmp></span></li>        <li class="clearfloat"><span><input id="10_B" name="name_40" type="radio" value="B" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>4</xmp></span></li>      </ul>    </div>    <div id="40_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">41.</div>    <div class="question" id="order_41" data="13"><xmp>(单选题)查看如下代码：
+     var i = 0;
+     var sum = 0;
+     while (i < 10) {
+         sum = sum + i;
+         i++;
+     }
+     console.log(i);
+    console.log(sum);
+上述代码执行后，输出结果为（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="13_C" name="name_41" type="radio" value="C" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>先输出11，再输出45</xmp></span></li>        <li class="clearfloat"><span><input id="13_B" name="name_41" type="radio" value="B" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>先输出10，再输出55</xmp></span></li>        <li class="clearfloat"><span><input id="13_A" name="name_41" type="radio" value="A" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>先输出10，再输出45</xmp></span></li>        <li class="clearfloat"><span><input id="13_D" name="name_41" type="radio" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>先输出11，再输出55</xmp></span></li>      </ul>    </div>    <div id="41_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">42.</div>    <div class="question" id="order_42" data="15"><xmp>(单选题)查看如下代码：
+var x = "10";
+function f1( x ){
+	x = x+2;
+	return x;
+}
+console.log(x);
+x = f1(x);
+console.log(x);
+执行后的结果是（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="15_A" name="name_42" type="radio" value="A" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>10 和 102</xmp></span></li>        <li class="clearfloat"><span><input id="15_B" name="name_42" type="radio" value="B" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>10 和 10</xmp></span></li>        <li class="clearfloat"><span><input id="15_D" name="name_42" type="radio" value="D" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>10 和 12</xmp></span></li>        <li class="clearfloat"><span><input id="15_C" name="name_42" type="radio" value="C" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>undefined 和 102</xmp></span></li>      </ul>    </div>    <div id="42_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">43.</div>    <div class="question" id="order_43" data="27"><xmp>(多选题)有如下JS代码：
+var empAge = 20;
+var empName;
+则下列选项中哪些不会发生执行错误（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="27_A" name="name_43" type="checkbox" value="A" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>if( empAge > 20 && empName.length > 0 ) console.log();</xmp></span></li>        <li class="clearfloat"><span><input id="27_D" name="name_43" type="checkbox" value="D" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>if( empAge >= 20 || empName.length > 0 ) console.log();</xmp></span></li>        <li class="clearfloat"><span><input id="27_C" name="name_43" type="checkbox" value="C" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>if( empAge > 20 || empName.length > 0 ) console.log();</xmp></span></li>        <li class="clearfloat"><span><input id="27_B" name="name_43" type="checkbox" value="B" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>if( empAge >= 20 && empName.length > 0 ) console.log();</xmp></span></li>      </ul>    </div>    <div id="43_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">44.</div>    <div class="question" id="order_44" data="34"><xmp>(单选题)有下述JS代码：
+var x = 10;
+var y = 20;
+var z = x<y ? x++ : ++y ;
+console.log( 'x=' + x + '; y=' + y + '; z=' + z);
+其运行结果是（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="34_C" name="name_44" type="radio" value="C" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>x=11; y=21; z=10</xmp></span></li>        <li class="clearfloat"><span><input id="34_B" name="name_44" type="radio" value="B" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>x=11; y=20; z=10</xmp></span></li>        <li class="clearfloat"><span><input id="34_A" name="name_44" type="radio" value="A" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>x=11; y=21; z=11</xmp></span></li>        <li class="clearfloat"><span><input id="34_D" name="name_44" type="radio" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>x=11; y=20; z=11</xmp></span></li>      </ul>    </div>    <div id="44_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">45.</div>    <div class="question" id="order_45" data="7"><xmp>(多选题)关于JS数据类型转换下列说法错误的是（）</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="7_A" name="name_45" type="checkbox" value="A" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>隐式转换是不需要程序员干预，由js自动完成的数据类型转换;</xmp></span></li>        <li class="clearfloat"><span><input id="7_B" name="name_45" type="checkbox" value="B" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>算术计算中，一切数据类型都默认先转成字符串类型，再做运算;</xmp></span></li>        <li class="clearfloat"><span><input id="7_C" name="name_45" type="checkbox" value="C" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>只要给定的数据类型不是想要的数据类型，且自动转换的结果也不是想要的数据类型，就要强制转换;</xmp></span></li>        <li class="clearfloat"><span><input id="7_D" name="name_45" type="checkbox" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>Number()可以将任意数据类型转换成数字类型;</xmp></span></li>      </ul>    </div>    <div id="45_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">46.</div>    <div class="question" id="order_46" data="9"><xmp>(多选题)关于函数下列说法正确的是（）</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="9_D" name="name_46" type="checkbox" value="D" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>函数名通过函数对象的地址引用着函数对象；</xmp></span></li>        <li class="clearfloat"><span><input id="9_C" name="name_46" type="checkbox" value="C" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>函数不能同时被多个对象引用；</xmp></span></li>        <li class="clearfloat"><span><input id="9_A" name="name_46" type="checkbox" value="A" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>函数名其实仅是一个普通的变量；</xmp></span></li>        <li class="clearfloat"><span><input id="9_B" name="name_46" type="checkbox" value="B" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>函数其实是保存代码段的引用类型的对象；</xmp></span></li>      </ul>    </div>    <div id="46_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">47.</div>    <div class="question" id="order_47" data="43"><xmp>(多选题)下列哪些选项中的语句可以查找出一个数组中的最大值（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="43_C" name="name_47" type="checkbox" value="C" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>var max = arr[0] ; 
+for( var i in arr ){ 
+    max = i > max ? i : max;
+}</xmp></span></li>        <li class="clearfloat"><span><input id="43_D" name="name_47" type="checkbox" value="D" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>var max = arr[0] ; 
+for( var i in arr ){ 
+    max = arr[i] > max ?  arr[i] : max;
+}</xmp></span></li>        <li class="clearfloat"><span><input id="43_B" name="name_47" type="checkbox" value="B" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>var max = arr[0] ; 
+var i = 0;
+while( i < arr.length ){
+max = arr[i] > max ?  arr[i] : max;
+    		   i++;
+}</xmp></span></li>        <li class="clearfloat"><span><input id="43_A" name="name_47" type="checkbox" value="A" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>var max = arr[0] ; 
+for( var i=0; i<arr.length; i++ ){ 
+    max = arr[i] > max ?  arr[i] : max;
+}</xmp></span></li>      </ul>    </div>    <div id="47_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">48.</div>    <div class="question" id="order_48" data="2"><xmp>(单选题)一个整数除以2余1，用所得的商除以5余4，再用所得的商除以6余1。用这个整数除以60，余数是多少？</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="2_B" name="name_48" type="radio" value="B" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>1</xmp></span></li>        <li class="clearfloat"><span><input id="2_C" name="name_48" type="radio" value="C" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>4</xmp></span></li>        <li class="clearfloat"><span><input id="2_A" name="name_48" type="radio" value="A" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>19</xmp></span></li>        <li class="clearfloat"><span><input id="2_D" name="name_48" type="radio" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>0</xmp></span></li>      </ul>    </div>    <div id="48_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">49.</div>    <div class="question" id="order_49" data="16"><xmp>(单选题)查看如下代码：
+function f1( ){
+	console.log(x);
+	var x = 10;
+	++x;
+	console.log(x);
+}
+f1();
+执行后的结果是（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="16_B" name="name_49" type="radio" value="B" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>undefined 和 10</xmp></span></li>        <li class="clearfloat"><span><input id="16_A" name="name_49" type="radio" value="A" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>程序错误</xmp></span></li>        <li class="clearfloat"><span><input id="16_C" name="name_49" type="radio" value="C" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>undefined 和 11</xmp></span></li>        <li class="clearfloat"><span><input id="16_D" name="name_49" type="radio" value="D" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>10 和 11</xmp></span></li>      </ul>    </div>    <div id="49_answer" class="exam_result" style="display:none">    </div>  </li>  <li>    <div class="t_num">50.</div>    <div class="question" id="order_50" data="45"><xmp>(单选题)查看如下代码：
+   var arr1 = [ [ 11,34 ], [12, 45,9],[81,6] ];
+   var str = arr1.toString();
+   var arr2 =              ;
+   arr2.sort(function(a,b){return a-b;});
+   console.log(             );
+上述代码需要实现的功能是：输出 arr1 中的最大数值。为实现此功能，可以填入横线处的代码是（）。</xmp></div>    <div class="t_select">      <ul>        <li class="clearfloat"><span><input id="45_A" name="name_50" type="radio" value="A" onclick="addAnswerToCookie2();"> A.</span><span class="ans"><xmp>str.split() 和  arr2[arr2.length-1]</xmp></span></li>        <li class="clearfloat"><span><input id="45_D" name="name_50" type="radio" value="D" onclick="addAnswerToCookie2();"> B.</span><span class="ans"><xmp>str.split(",") 和  arr2[arr2.length-1]</xmp></span></li>        <li class="clearfloat"><span><input id="45_B" name="name_50" type="radio" value="B" onclick="addAnswerToCookie2();"> C.</span><span class="ans"><xmp>str.split(",") 和  arr2[arr2.length]</xmp></span></li>        <li class="clearfloat"><span><input id="45_C" name="name_50" type="radio" value="C" onclick="addAnswerToCookie2();"> D.</span><span class="ans"><xmp>str.split() 和  arr2[arr2.length]</xmp></span></li>      </ul>    </div>    <div id="50_answer" class="exam_result" style="display:none">    </div>  </li></ul>
+</div>
+<div class="exam_btn"><input name="" type="button" class="btn btn_r" value="交卷" style="background: rgb(153, 153, 153); cursor: auto;"></div>
+</div>
+</div>
+<div class="footer_wrap">
+  <div class="footer clearfloat">
+    <div class="footer_logo"></div>
+    <div class="footer_con">
+      <p class="about"><a href="http://qsserver.tmooc.cn/qsserver/source/exam_paper/2018/9/1535969937652/1535360502932.html">关于我们</a> | <a href="http://qsserver.tmooc.cn/qsserver/source/exam_paper/2018/9/1535969937652/1535360502932.html">服务支持</a> |  <a href="http://qsserver.tmooc.cn/qsserver/source/exam_paper/2018/9/1535969937652/1535360502932.html">咨询与反馈</a> | <a href="http://qsserver.tmooc.cn/qsserver/source/exam_paper/2018/9/1535969937652/1535360502932.html">最新动态</a> | <a href="http://qsserver.tmooc.cn/qsserver/source/exam_paper/2018/9/1535969937652/1535360502932.html">代理合作</a> | <a href="http://qsserver.tmooc.cn/qsserver/source/exam_paper/2018/9/1535969937652/1535360502932.html">名师堂</a></p>
+      <p>达内时代科技集团有限公司 2013-2014</p>
+      <p>中关村中心企业合作：62117598    UID中心企业合作：82168421、82168831</p>
+    </div>
+    <div class="footer_share"></div>
+  </div>
+</div>
+
+</body></html>
